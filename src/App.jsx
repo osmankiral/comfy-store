@@ -14,9 +14,11 @@ import {
 } from "./pages";
 import { ErrorElement } from "./components";
 
-import {loader as landingLoader} from './pages/Landing'
-import {loader as singleProductLoader} from './pages/SingleProduct'
-import {loader as productsLoader} from './pages/Products'
+import { loader as landingLoader } from "./pages/Landing";
+import { loader as singleProductLoader } from "./pages/SingleProduct";
+import { loader as productsLoader } from "./pages/Products";
+
+import { action as registerAction } from "./pages/Register";
 
 const router = createBrowserRouter([
   {
@@ -27,38 +29,38 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Landing />,
-        errorElement: <ErrorElement/>,
-        loader: landingLoader
+        errorElement: <ErrorElement />,
+        loader: landingLoader,
       },
       {
-        path: 'products',
+        path: "products",
         element: <Products />,
-        errorElement: <ErrorElement/>,
-        loader: productsLoader
+        errorElement: <ErrorElement />,
+        loader: productsLoader,
       },
       {
-        path: 'products/:id',
+        path: "products/:id",
         element: <SingleProduct />,
-        errorElement: <ErrorElement/>,
+        errorElement: <ErrorElement />,
         loader: singleProductLoader,
       },
       {
-        path: 'cart',
+        path: "cart",
         element: <Cart />,
       },
       {
-        path: 'about',
+        path: "about",
         element: <About />,
       },
       {
-        path: 'checkout',
+        path: "checkout",
         element: <Checkout />,
       },
       {
-        path: 'orders',
+        path: "orders",
         element: <Orders />,
       },
-    ]
+    ],
   },
   {
     path: "/login",
@@ -69,6 +71,7 @@ const router = createBrowserRouter([
     path: "/register",
     element: <Register />,
     errorElement: <Error />,
+    action: registerAction,
   },
 ]);
 
